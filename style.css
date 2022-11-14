@@ -90,7 +90,7 @@ h1 {
   cursor: pointer;
 }
 
-.tasks-list {
+.task-list {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -99,7 +99,7 @@ h1 {
   gap: 1rem;
 }
 
-.tasks-list li {
+.task-list li {
   background: #282828;
   color: rgb(226, 226, 226);
   border-radius: 8px;

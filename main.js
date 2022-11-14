@@ -10,7 +10,7 @@ const saveLocalStorage = (tasksList) => {
 }
 
 const createTask = (task) => `
-    <li>${task.name} <img class="delete-btn" src="./img/delete.png" alt="botón de borrar tarea" data-id=${task.id}></li>
+    <li>${task.name} <img class="delete-btn" src="./img/delete.svg" alt="botón de borrar tarea" data-id=${task.id}></li>
 `
 
 const renderTasksList = (todoList) => {
@@ -29,15 +29,15 @@ const addTask = (e) => {
     e.preventDefault();
     const taskName = input.value.trim();
 
-    if(!tasksList.length){
+    if(!taskName.length){
         alert('Ingresá una tarea primero!');
         return;
-    }else if(tasksList.name.toLowerCase() === taskName.toLowerCase()){
+    }else if(tasks.some(task => task.name.toLowerCase() === taskName.toLowerCase())){
         alert('Ingresaste una tarea que ya existe. Probá de nuevo!');
         return;
     }
 
-    tasks = [...tasks, {name: taskName, id: task.length+1}];
+    tasks = [...tasks, {name: taskName, id: tasks.length+1}];
     input.value = '';
 
     renderTasksList(tasks);
@@ -45,11 +45,11 @@ const addTask = (e) => {
     hideDeleteAll(tasks);
 }
 
-const removeTask = () => {
+const removeTask = (e) => {
     if(!e.target.classList.contains('delete-btn')) return;
 
-    const filterId = Number(e.targe.setdata.id);
-    tasks = tasks.filter(tasks => tasks.id !== filterId);
+    const filterId = Number(e.target.dataset.id);
+    tasks = tasks.filter(task => task.id !== filterId);
 
     renderTasksList(tasks);
     saveLocalStorage(tasks);
