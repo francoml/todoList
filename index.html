@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <title>todoList</title>
+</head>
+
+<body>
+    <section class="todo-container">
+        <h1>To Do List <img class=logo src="./img/logo.png" alt="logo"></h1>
+        <form class="add-form">
+            <div class="input-container">
+                <img src="./img/vector.svg" alt="lupa de búsqueda">
+                <input type="text" class="input-text" placeholder="Ingresá una tarea...">
+            </div>
+            <button class="add-btn">Agregar Tarea</button>
+        </form>
+    </section>
+
+    <ul class="tasks-list"></ul>
+    <button class="deleteAll-btn">Borrar todas las tareas</button>
+    <footer>Hecho por Franco Martín López 🤖</footer>
+    <script src="./main.js"></script>
+</body>
+
+</html>
