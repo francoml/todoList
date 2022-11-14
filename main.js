@@ -12,13 +12,13 @@ const saveLocalStorage = (tasksList) => {
     localStorage.setItem('tasks', JSON.stringify(tasksList));
 }
 
-// Creo un elemento(tarea) para renderizar
+// Creo un elemento(tarea) para renderizar, si agrego {llaves} no renderiza
 const createTask = (task) => `
     <li>${task.name} <img class="delete-btn" src="./img/delete.svg" alt="botón de borrar tarea" data-id=${task.id}></li>
 `
 // Renderizo la lista de tareas
 const renderTasksList = (todoList) => {
-    tasksList.innerHTML = todoList.map(task => createTask(task)).join('');
+    tasksList.innerHTML = todoList.map(task => createTask(task)).join(''); 
 }
 
 // Mostrar o no el botón de 'Borrar todas las tareas' dependiendo si hay o no tareas
@@ -32,8 +32,8 @@ const hideDeleteAll = (tasksList) => {
 
 // Agregar tareas a la lista
 const addTask = (e) => {
-    e.preventDefault();
-    const taskName = input.value.trim();
+    e.preventDefault(); // Evita que se recargue la página al apretar el botón 'Agregar Tarea'
+    const taskName = input.value.trim(); // Quita los espacios vacios de los extremos
 
     if(!taskName.length){
         alert('Ingresá una tarea primero!');
@@ -53,7 +53,7 @@ const addTask = (e) => {
 
 // Borrar una sola tarea
 const removeTask = (e) => {
-    if(!e.target.classList.contains('delete-btn')) return;
+    if(!e.target.classList.contains('delete-btn')) return; // Permite que solo se borre haciendo click en la imágen del tachito
 
     const filterId = Number(e.target.dataset.id);
     tasks = tasks.filter(task => task.id !== filterId);
