@@ -44,3 +44,31 @@ const addTask = (e) => {
     saveLocalStorage(tasks);
     hideDeleteAll(tasks);
 }
+
+const removeTask = () => {
+    if(!e.target.classList.contains('delete-btn')) return;
+
+    const filterId = Number(e.targe.setdata.id);
+    tasks = tasks.filter(tasks => tasks.id !== filterId);
+
+    renderTasksList(tasks);
+    saveLocalStorage(tasks);
+    hideDeleteAll(tasks);
+}
+
+const removeAll = () => {
+    tasks = [];
+    renderTasksList(tasks);
+    saveLocalStorage(tasks);
+    hideDeleteAll(tasks);
+}
+
+const init = () => {
+    renderTasksList(tasks);
+    addForm.addEventListener('submit', addTask);
+    deleteBtnAll.addEventListener('click', removeAll);
+    tasksList.addEventListener('click', removeTask);
+    hideDeleteAll(tasks);
+}
+
+init();
